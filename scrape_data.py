@@ -17,11 +17,11 @@ def scrape_all():
     # Run all scraping functions and store results in a dictionary
     data = {
         'top_eight_events': top_eight_events(),
-        'top_two_news': top_two_news(),
+        'top_four_news': top_four_news(),
         'covid_update' : covid_update(),
         'last_modified': dt.datetime.now()
     }
-    
+        
     # Stop webdriver and return data
     browser.quit()
     return data
@@ -42,7 +42,7 @@ def top_eight_events(filename = 'eventbrite_crawler.py'):
 
     return results_list
 
-def top_two_news(filename = 'theurbanlist_crawler.py'):
+def top_four_news(filename = 'theurbanlist_crawler.py'):
 
     # run the crawler
     runpy.run_path(path_name=filename)
@@ -52,7 +52,7 @@ def top_two_news(filename = 'theurbanlist_crawler.py'):
     theurbanlist = db.theurbanlist
 
     # return the most recent news
-    results = theurbanlist.find().sort('_id',-1).limit(2)
+    results = theurbanlist.find().sort('_id',-1).limit(4)
 
     results_list  = [result for result in results]
 
@@ -78,3 +78,9 @@ if __name__ == "__main__":
 
     # If running as script, print scraped data
     print(scrape_all())
+
+    # select database and collection to use
+    db = client.events_db
+    this_weekend = db.this_weekend
+    # insert data to db
+    this_weekend.insert_one(scrape_all())

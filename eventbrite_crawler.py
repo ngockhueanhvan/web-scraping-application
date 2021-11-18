@@ -63,7 +63,7 @@ def followers_to_int(str):
 # initialise the first page url
 driver.get(url)
 
-for x in range(20):
+for x in range(7):
     # switch to another tab to scrape data on that page
     chwd = driver.window_handles
     driver.switch_to.window(chwd[-1])

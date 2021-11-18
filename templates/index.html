@@ -95,12 +95,39 @@
 	</div>
 	<!-- end hero area -->
 
+	<!-- featured section -->
+	<div class="feature-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-7">
+					<div class="featured-text">
+						<h2 class="pb-3">What <span class="orange-text">Is On?</span></h2>
+						<div class="row">
+							{% for news in this_weekend.top_four_news %}
+							<div class="col-lg-6 col-md-6 mb-4 mb-md-5">
+								<div class="list-box d-flex">
+									<div class="list-icon">
+										<a href={{news.link}}><img style="max-width:80%; border-radius:5%;" src={{news.thumbnail}}></a>
+									</div>
+									<div class="content">
+										<h3><a href={{news.link}} class="read-more-btn" style="margin-top:0px;font-size:15px;">{{news.title}}</a></h3>
+									</div>
+								</div>
+							</div>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end featured section -->
 
 	<!-- covid updates section -->
 	<div class="list-section pt-80 pb-80">
 		<div class="container">
 			<div class="content">
-				<h4>First, How Many New Covid Cases Today?</h4>
+				<h4>Quick Check! How Many New Covid Cases Today?</h4>
 				<p>Updated On {{this_weekend.covid_update.date_time}} By Vic Government</p><br>
 			</div>
 			<div class="row">
@@ -143,6 +170,7 @@
 		</div>
 	</div>
 	<!-- end covid update list section -->
+
 
 
 	<!-- start TEST features events section -->
@@ -202,10 +230,11 @@
 				</div>
 				<!--Content Column-->
 				<div class="content-column col-lg-6">
+					<h3>
+						Don't Forget To Check <br>
+						<span class="orange-text"><br>The Weather!</span>
+					</h3>
 
-
-					<h3>Don't Forget To Check</h3>
-					<h3><span class="orange-text"><br>The Weather!</span></h3>
 					<!-- weather widget start-->
 					<a class="weatherwidget-io" href="https://forecast7.com/en/n37d81144d96/melbourne/" data-label_1="MELBOURNE" data-label_2="WEATHER" data-theme="pure" >MELBOURNE WEATHER</a>
 					<script>
@@ -220,85 +249,6 @@
 	</section>
 	<!-- end cart banner section -->
 
-
-	<!-- latest news -->
-	<div class="latest-news pt-150 pb-150">
-		<div class="container">
-
-			<div class="row">
-				<div class="col-lg-8 offset-lg-2 text-center">
-					<div class="section-title">
-						<h3><span class="orange-text">Our</span> News</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, fuga quas itaque eveniet
-							beatae optio.</p>
-					</div>
-				</div>
-			</div>
-
-			<div class="row">
-				<div class="col-lg-4 col-md-6">
-					<div class="single-latest-news">
-						<a href="single-news.html">
-							<div class="latest-news-bg news-bg-1"></div>
-						</a>
-						<div class="news-text-box">
-							<h3><a href="single-news.html">You will vainly look for fruit on it in autumn.</a></h3>
-							<p class="blog-meta">
-								<span class="author"><i class="fas fa-user"></i> Admin</span>
-								<span class="date"><i class="fas fa-calendar"></i> 27 December, 2019</span>
-							</p>
-							<p class="excerpt">Vivamus lacus enim, pulvinar vel nulla sed, scelerisque rhoncus nisi.
-								Praesent vitae mattis nunc, egestas viverra eros.</p>
-							<a href="single-news.html" class="read-more-btn">read more <i
-									class="fas fa-angle-right"></i></a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="single-latest-news">
-						<a href="single-news.html">
-							<div class="latest-news-bg news-bg-2"></div>
-						</a>
-						<div class="news-text-box">
-							<h3><a href="single-news.html">A man's worth has its season, like tomato.</a></h3>
-							<p class="blog-meta">
-								<span class="author"><i class="fas fa-user"></i> Admin</span>
-								<span class="date"><i class="fas fa-calendar"></i> 27 December, 2019</span>
-							</p>
-							<p class="excerpt">Vivamus lacus enim, pulvinar vel nulla sed, scelerisque rhoncus nisi.
-								Praesent vitae mattis nunc, egestas viverra eros.</p>
-							<a href="single-news.html" class="read-more-btn">read more <i
-									class="fas fa-angle-right"></i></a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0">
-					<div class="single-latest-news">
-						<a href="single-news.html">
-							<div class="latest-news-bg news-bg-3"></div>
-						</a>
-						<div class="news-text-box">
-							<h3><a href="single-news.html">Good thoughts bear good fresh juicy fruit.</a></h3>
-							<p class="blog-meta">
-								<span class="author"><i class="fas fa-user"></i> Admin</span>
-								<span class="date"><i class="fas fa-calendar"></i> 27 December, 2019</span>
-							</p>
-							<p class="excerpt">Vivamus lacus enim, pulvinar vel nulla sed, scelerisque rhoncus nisi.
-								Praesent vitae mattis nunc, egestas viverra eros.</p>
-							<a href="single-news.html" class="read-more-btn">read more <i
-									class="fas fa-angle-right"></i></a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-12 text-center">
-					<a href="news.html" class="boxed-btn">More News</a>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end latest news -->
 
 	<!-- logo carousel -->
 	<div class="logo-carousel-section">
