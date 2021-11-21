@@ -9,6 +9,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 conn = "mongodb://localhost:27017"
 client = pymongo.MongoClient(conn)
 
+
 def scrape_all():
     # Initiate headless driver for deployment
     executable_path = {'executable_path': ChromeDriverManager().install()}
@@ -35,8 +36,11 @@ def top_eight_events(filename = 'eventbrite_crawler.py'):
     db = client.events_db
     eventbrite = db.eventbrite
 
+    # sort only event scraped on today's refresh
+    # the date of refresh
+    inserted_on = dt.datetime.now().strftime('%Y-%m-%d')
     # return the list of top 8 followed events
-    results = eventbrite.find().sort('number_followers',-1).limit(8)
+    results = eventbrite.find({'inserted_on':inserted_on}).sort('number_followers',-1).limit(8)
 
     results_list  = [result for result in results]
 
@@ -50,7 +54,7 @@ def top_four_news(filename = 'theurbanlist_crawler.py'):
     # select database and collection to use
     db = client.events_db
     theurbanlist = db.theurbanlist
-
+    
     # return the most recent news
     results = theurbanlist.find().sort('_id',-1).limit(4)
 

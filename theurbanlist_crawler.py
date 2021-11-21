@@ -10,6 +10,7 @@ import re
 
 # database
 import pymongo
+import datetime as dt
 
 # setup connection to mongodb
 conn = "mongodb://localhost:27017"
@@ -48,6 +49,7 @@ for result in results:
             'title' : title
             , 'link' : link
             , 'thumbnail' : thumbnail
+            , 'inserted_on' : dt.datetime.now().strftime('%Y-%m-%d')
         }
 
         filter = {'title': title}

@@ -3,6 +3,7 @@ import requests
 import re
 # database
 import pymongo
+import datetime as dt
 
 
 # setup connection to mongodb
@@ -50,7 +51,8 @@ date_time = re.findall(date_time_pattern,date_time)[0]
 # turn it to a dict
 update_entry = {
     'date_time' : date_time,
-    'active_cases' : active_cases
+    'active_cases' : active_cases,
+    'inserted_on': dt.datetime.now().strftime('%Y-%m-%d')
 }
 
 # insert into database if the current date's update is not existed, otherwise update

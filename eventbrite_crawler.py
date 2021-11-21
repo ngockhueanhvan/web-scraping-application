@@ -10,6 +10,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 # database
 import pymongo
 import re
+import datetime as dt
 
 # setup connection to mongodb
 conn = "mongodb://localhost:27017"
@@ -63,7 +64,7 @@ def followers_to_int(str):
 # initialise the first page url
 driver.get(url)
 
-for x in range(7):
+for x in range(20):
     # switch to another tab to scrape data on that page
     chwd = driver.window_handles
     driver.switch_to.window(chwd[-1])
@@ -98,6 +99,7 @@ for x in range(7):
                 , 'organisation_name' : organisation_name
                 , 'number_followers' : number_followers
                 , 'thumbnail' : thumbnail
+                , 'inserted_on': dt.datetime.now().strftime('%Y-%m-%d')
             }
 
             filter = {'title': title}
