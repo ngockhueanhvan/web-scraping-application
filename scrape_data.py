@@ -17,7 +17,7 @@ def scrape_all():
 
     # Run all scraping functions and store results in a dictionary
     data = {
-        'top_eight_events': top_eight_events(),
+        'top_nine_events': top_nine_events(),
         'top_four_news': top_four_news(),
         'covid_update' : covid_update(),
         'last_modified': dt.datetime.now()
@@ -27,7 +27,7 @@ def scrape_all():
     browser.quit()
     return data
 
-def top_eight_events(filename = 'eventbrite_crawler.py'):
+def top_nine_events(filename = 'eventbrite_crawler.py'):
 
     # run the crawler
     runpy.run_path(path_name=filename)
@@ -40,7 +40,7 @@ def top_eight_events(filename = 'eventbrite_crawler.py'):
     # the date of refresh
     inserted_on = dt.datetime.now().strftime('%Y-%m-%d')
     # return the list of top 8 followed events
-    results = eventbrite.find({'inserted_on':inserted_on}).sort('number_followers',-1).limit(8)
+    results = eventbrite.find({'inserted_on':inserted_on}).sort('number_followers',-1).limit(9)
 
     results_list  = [result for result in results]
 
